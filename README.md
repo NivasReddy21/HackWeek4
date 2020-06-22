@@ -1,16 +1,13 @@
 # hackweek_4
 
-A new Flutter project.
+Social NetWork App for MEC
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# Fusion
 
-A few resources to get you started if this is your first Flutter project:
+Currently Only Chat Feature is working, As we had only one week we were not able add many features.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+We listed all the upcoming features in WebSite.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Click on Get Started to log on to the web app, It will take you to static home page. You can click on chat button to go to chat Page. The Chat feature is only working the users are also static
