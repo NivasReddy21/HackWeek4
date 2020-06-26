@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hackweek_4/home/home.dart';
 import 'package:hackweek_4/landingpage/landing.dart';
 import './models/user.dart';
@@ -42,11 +43,25 @@ class FirebaseAuthService {
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
     );
+
     final authResult = await _firebaseAuth.signInWithCredential(credential);
     Navigator.of(context).pop();
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => Home(),
     ));
+    final snapShot = await Firestore.instance
+        .collection('users')
+        .document(authResult.user.uid)
+        .get();
+    if (!snapShot.exists) {
+      Firestore.instance
+          .collection('users')
+          .document(authResult.user.uid)
+          .setData({
+        'userName': authResult.user.displayName,
+        'photoUrl': authResult.user.photoUrl
+      });
+    }
     return _userFromFirebase(authResult.user);
   }
 
